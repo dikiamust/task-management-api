@@ -96,6 +96,26 @@ class InventoryController {
     }
   }
 
+  static async getDetailProduct(req, res, next) {
+    const {id} = req.params;
+    try {
+      const detail = await ProductModel.findById(id).where({
+        deleted: false,
+      });
+
+      if (!detail) {
+        throw {name: "PRODUCT_NOT_FOUND"};
+      }
+      res.status(200).json({
+        success: true,
+        message: "Product shown successfully",
+        data: detail,
+      });
+    } catch (err) {
+      next(err);
+    }
+  }
+
   static async getAllProducts(req, res, next) {
     try {
       const result = await ProductModel.find().where({deleted: false});

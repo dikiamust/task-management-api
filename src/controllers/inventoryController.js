@@ -122,7 +122,7 @@ class InventoryController {
       if (result.length > 0) {
         res.status(200).json({
           success: true,
-          message: "Products was successfully shown",
+          message: "All products was successfully shown",
           data: result,
         });
       } else {

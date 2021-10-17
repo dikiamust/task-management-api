@@ -16,6 +16,12 @@ class ManagerRouter {
       authJwt.managerAuthorization,
       managerController.addEmployee
     );
+
+    this.router.get(
+      "/employees/all",
+      authJwt.managerAuthorization,
+      managerController.getAllEmployees
+    );
   }
 }
 

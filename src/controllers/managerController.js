@@ -37,6 +37,26 @@ class ManagerController {
       next(err);
     }
   }
+
+  static async getAllEmployees(req, res, next) {
+    try {
+      const result = await UserModel.find()
+        .where({deleted: false})
+        .where({role: "inventory"});
+
+      if (result.length > 0) {
+        res.status(200).json({
+          success: true,
+          message: "All employees were shown successfully",
+          data: result,
+        });
+      } else {
+        res.status(200).json({message: "No employee registered ", data: 0});
+      }
+    } catch (err) {
+      next(err);
+    }
+  }
 }
 
 module.exports = ManagerController;

@@ -1,0 +1,6 @@
+There are two users, the employer as manager and the employee as the inventory.
+Each user should be log in before doing the task.
+The manager is created by directly injected into the database.
+Only the manager can add a user/ employee.
+The manager can visit the inventory dashboard to monitoring the inventory's task, but the inventory can not visit the manager dashboard.
+The inventory can CRUD product.
